@@ -2,6 +2,8 @@
 
 When activated, makes every element you click invisible. Can also return visibility to elements or undo invisibility. Note that this doesn't remove the elements, just changes their visibility in the style.
 
+This is just a fun thing I built to fight against webpage clutter (intrusive headers, pop-ups, annoying banners, and the like). 
+
 ### Firefox Instructions
 
 Clone this repo and navigate to `about:debugging` in the browser. Choose 'This Firefox' from the sidebar and select 'Load Temporary Add-on...'
@@ -16,6 +18,6 @@ Click `Load unpacked` and navigate to the repo, choosing the entire folder. The 
 
 ### Using the Extension
 
-When you click on the extension icon, you'll be able to toggle the touch of invisibility on and off. When toggled on, any element you right-click (or right-click adjacent functionality) will have its visibility set to "hidden".
+When you click on the extension icon, you'll be able to toggle the touch of invisibility on and off. When toggled on, any element you click will have its visibility set to "hidden".
 
-You can press 'z' any number of times while the touch is active to undo the last touches.
+You can return the visibility of elements by pressing 'z' any number of times. The touch needs to be active for this to work. Touches will be removed in order of last element touched.
