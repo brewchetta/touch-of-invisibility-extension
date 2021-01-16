@@ -11,7 +11,9 @@ const invisibleElements = []
 
 // Changes element visibility to none
 // Checks to see if invisible touch is enabled on each click
-const handleClick = ({target}) => {
+const handleClick = event => {
+  event.preventDefault()
+  const {target} = event
   handleGetSync(obj => {
     if (obj.invisibleTouchActive === 'on') {
       invisibleElements.push(target)
@@ -23,8 +25,8 @@ const handleClick = ({target}) => {
 // Undo for making elements visible starting with last element
 const handleUndo = ({keyCode}) => {
   handleGetSync(obj => {
-    if (keyCode === 90 && obj.invisibleTouchActive === 'on' && invisibleElements.length > 0) {
-      invisibleElements.pop().visibility = ""
+    if (obj.invisibleTouchActive === 'on' && keyCode === 90 && invisibleElements.length > 0) {
+      invisibleElements.pop().style.visibility = ""
     }
   })
 }
