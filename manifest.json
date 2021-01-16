@@ -7,11 +7,11 @@
   "description": "Makes anything you click invisible.",
 
   "icons": {
-    "48": "icons/learn-32x32.png"
+    "48": "icons/handprint-32x32.png"
   },
 
   "browser_action": {
-    "default_icon": "icons/learn-32x32.png",
+    "default_icon": "icons/handprint-32x32.png",
     "default_title": "Invisible Touch",
     "default_popup": "settings.html"
   },
