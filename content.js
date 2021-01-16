@@ -12,10 +12,10 @@ const invisibleElements = []
 // Changes element visibility to none
 // Checks to see if invisible touch is enabled on each click
 const handleClick = event => {
-  event.preventDefault()
   const {target} = event
   handleGetSync(obj => {
     if (obj.invisibleTouchActive === 'on') {
+      event.preventDefault()
       invisibleElements.push(target)
       target.style.visibility = "hidden"
     }
