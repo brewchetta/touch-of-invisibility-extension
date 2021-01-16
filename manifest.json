@@ -1,10 +1,10 @@
 {
 
   "manifest_version": 2,
-  "name": "Invisible Touch",
-  "version": "1.0",
+  "name": "Touch of Invisibility",
+  "version": "1.1",
 
-  "description": "Makes anything you click invisible.",
+  "description": "Makes anything you click invisible. Can undo invisibility.",
 
   "icons": {
     "48": "icons/handprint-32x32.png"
@@ -12,7 +12,7 @@
 
   "browser_action": {
     "default_icon": "icons/handprint-32x32.png",
-    "default_title": "Invisible Touch",
+    "default_title": "Touch of Invisibility",
     "default_popup": "settings.html"
   },
 

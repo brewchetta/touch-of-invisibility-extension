@@ -16,11 +16,15 @@ const handleSetSync = object => {
 
 // Gather elements
 const activateBox = document.getElementById('timer-active-input')
+const helperText = document.getElementById('helper-text')
 
 // Gather local values from browser storage to display
 const loadInitialValues = () => {
   handleGetSync((obj) => {
-    if (obj.invisibleTouchActive === 'on') activateBox.checked = true
+    if (obj.invisibleTouchActive === 'on') {
+      activateBox.checked = true
+      helperText.style.opacity = 1
+    }
   })
 }
 
@@ -28,8 +32,10 @@ const loadInitialValues = () => {
 const handleToggleInvisibleTouch = () => {
   if (activateBox.checked) {
     handleSetSync({invisibleTouchActive: 'on'})
+    helperText.style.opacity = 1
   } else {
     handleSetSync({invisibleTouchActive: 'off'})
+    helperText.style.opacity = 0
   }
 }
 
