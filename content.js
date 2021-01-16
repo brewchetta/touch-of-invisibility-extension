@@ -15,7 +15,6 @@ const handleClick = event => {
   const {target} = event
   handleGetSync(obj => {
     if (obj.invisibleTouchActive === 'on') {
-      event.preventDefault()
       invisibleElements.push(target)
       target.style.visibility = "hidden"
     }
