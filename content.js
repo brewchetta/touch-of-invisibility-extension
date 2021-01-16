@@ -20,15 +20,18 @@ const handleClick = ({target}) => {
   })
 }
 
-// Undo for making element invisible
-const handleUndo = () => {
-  if (invisibleElements.length > 0) {
-    invisibleElements.pop().visibility = ""
-  }
+// Undo for making elements visible starting with last element
+const handleUndo = ({keyCode}) => {
+  handleGetSync(obj => {
+    if (keyCode === 90 && obj.invisibleTouchActive === 'on' && invisibleElements.length > 0) {
+      invisibleElements.pop().visibility = ""
+    }
+  })
 }
 
 const handleDOMContentLoaded = () => {
   document.addEventListener("click", handleClick)
+  document.addEventListener("keyup", handleUndo)
 }
 
 // Fire off main script

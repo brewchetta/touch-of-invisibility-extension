@@ -15,8 +15,7 @@ const handleSetSync = object => {
 }
 
 // Gather elements
-const activateBox = document.getElementById('active-input-input')
-const undoButton = document.getElementById('undo-button')
+const activateBox = document.getElementById('timer-active-input')
 
 // Gather local values from browser storage to display
 const loadInitialValues = () => {
@@ -26,7 +25,7 @@ const loadInitialValues = () => {
 }
 
 // Sends information to storage depending on whether checkbox is clicked or not
-const handleToggleActive = () => {
+const handleToggleInvisibleTouch = () => {
   if (activateBox.checked) {
     handleSetSync({invisibleTouchActive: 'on'})
   } else {
@@ -35,4 +34,4 @@ const handleToggleActive = () => {
 }
 
 loadInitialValues()
-activateBox.addEventListener('click', handleToggleActive)
+activateBox.addEventListener('click', handleToggleInvisibleTouch)
