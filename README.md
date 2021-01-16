@@ -1,4 +1,4 @@
-## Flatiron Blog Timer
+## Touch of Invisibility
 
 When activated, makes every element you click invisible. Can also return visibility to elements or undo invisibility. Note that this doesn't remove the elements, just changes their visibility in the style.
 
@@ -16,8 +16,6 @@ Click `Load unpacked` and navigate to the repo, choosing the entire folder. The 
 
 ### Using the Extension
 
-When you click on the extension icon, you'll be able to adjust the time for student presentations. The first time is the number of minutes / seconds a student can present without a warning. The grace period is additional time with a more explicit time warning.
+When you click on the extension icon, you'll be able to toggle the touch of invisibility on and off. When toggled on, any element you right-click (or right-click adjacent functionality) will have its visibility set to "hidden".
 
-The timer is off by default so instructors can peruse blogging sites without the timer. Set the timer to on and determine how long a student has to present.
-
-Load up each page of student blogs and then switch the timer to 'on'. A student's timer begins once the student tabs back into their blog. There is an initial disappearing bar at the top followed by a more explicit warning once they're over time.
+You can press 'z' any number of times while the touch is active to undo the last touches.
