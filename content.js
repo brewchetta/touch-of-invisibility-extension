@@ -16,7 +16,7 @@ const handleSetSync = object => {
 const invisibleElements = []
 
 // functions for opening new window / going to link based on text
-const openInNewTab = url => { const win = window.open(url, '_blank'); win.focus(); }
+const openInNewTab = url => { const prev = window; const win = window.open(url, '_blank'); win.blur(); prev.focus(); }
 const goTo = url => { window.location.href = url }
 const searchURL = () => `https://www.google.com/search?q=${window.getSelection().toString().trim().replaceAll(" ", "+")}`
 let preventContextMenu
