@@ -19,17 +19,21 @@ const invisibleElements = []
 const openInNewTab = url => { const win = window.open(url, '_blank'); win.focus(); }
 const goTo = url => { window.location.href = url }
 const searchURL = () => `https://www.google.com/search?q=${window.getSelection().toString().trim().replaceAll(" ", "+")}`
+let preventContextMenu
 
 // Changes element visibility to none
 // Checks to see if invisible touch is enabled on each click
 const handleClick = event => {
   const {target, type} = event
   // prevent context menu from popping up with right click
-  if (type === "contextmenu") event.preventDefault()
+  if (type === "contextmenu" && preventContextMenu) event.preventDefault()
   handleGetSync(obj => {
     if (obj.invisibleTouchActive === 'on') {
       invisibleElements.push(target)
       target.style.visibility = "hidden"
+      preventContextMenu = true
+    } else {
+      preventContextMenu = false
     }
   })
 }
