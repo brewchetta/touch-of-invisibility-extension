@@ -27,7 +27,6 @@ const handleClick = event => {
   // prevent context menu from popping up with right click
   if (type === "contextmenu") event.preventDefault()
   handleGetSync(obj => {
-    console.log(obj.invisibleTouchActive)
     if (obj.invisibleTouchActive === 'on') {
       invisibleElements.push(target)
       target.style.visibility = "hidden"
