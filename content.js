@@ -15,6 +15,11 @@ const handleSetSync = object => {
 // Array of elements made invisible through this app
 const invisibleElements = []
 
+// functions for opening new window / going to link based on text
+const openInNewTab = url => { const win = window.open(url, '_blank'); win.focus(); }
+const goTo = url => { window.location.href = url }
+const searchURL = () => `https://www.google.com/search?q=${window.getSelection().toString().trim().replaceAll(" ", "+")}`
+
 // Changes element visibility to none
 // Checks to see if invisible touch is enabled on each click
 const handleClick = event => {
@@ -22,6 +27,7 @@ const handleClick = event => {
   // prevent context menu from popping up with right click
   if (type === "contextmenu") event.preventDefault()
   handleGetSync(obj => {
+    console.log(obj.invisibleTouchActive)
     if (obj.invisibleTouchActive === 'on') {
       invisibleElements.push(target)
       target.style.visibility = "hidden"
@@ -34,6 +40,10 @@ const handleKeyPress = ({keyCode}) => {
   handleGetSync(obj => {
     if (obj.invisibleTouchActive === 'on' && keyCode === 90 && invisibleElements.length) {
       invisibleElements.pop().style.visibility = ""
+    } else if (obj.divinationTouchActive === 'on' && keyCode === 70) {
+      openInNewTab(searchURL())
+    } else if (obj.divinationTouchActive === 'on' && keyCode === 68) {
+      goTo(searchURL())
     }
   })
 }

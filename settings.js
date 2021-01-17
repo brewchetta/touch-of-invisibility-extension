@@ -15,29 +15,44 @@ const handleSetSync = object => {
 }
 
 // Gather elements
-const activateBox = document.getElementById('timer-active-input')
+const invisibleToggle = document.getElementById('invisible-touch-input')
+const divinationToggle = document.getElementById('divination-touch-input')
 const helperText = document.getElementById('helper-text')
 
 // Gather local values from browser storage to display
 const loadInitialValues = () => {
   handleGetSync((obj) => {
     if (obj.invisibleTouchActive === 'on') {
-      activateBox.checked = true
+      invisibleToggle.checked = true
       helperText.style.opacity = 1
+    } else if (obj.divinationTouchActive === 'on') {
+      divinationToggle.checked = true
     }
   })
 }
 
 // Sends information to storage depending on whether checkbox is clicked or not
 const handleToggleInvisibleTouch = () => {
-  if (activateBox.checked) {
-    handleSetSync({invisibleTouchActive: 'on'})
+  if (invisibleToggle.checked) {
+    handleSetSync({invisibleTouchActive: 'on', divinationTouchActive: 'off'})
     helperText.style.opacity = 1
+    divinationToggle.checked = false
   } else {
     handleSetSync({invisibleTouchActive: 'off'})
     helperText.style.opacity = 0
   }
 }
 
+// Sends information to storage depending on whether checkbox is clicked or not
+const handleToggleDivinationTouch = () => {
+  if (divinationToggle.checked) {
+    handleSetSync({invisibleTouchActive: 'off', divinationTouchActive: 'on'})
+    invisibleToggle.checked = false
+  } else {
+    handleSetSync({divinationTouchActive: 'off'})
+  }
+}
+
 loadInitialValues()
-activateBox.addEventListener('click', handleToggleInvisibleTouch)
+invisibleToggle.addEventListener('click', handleToggleInvisibleTouch)
+divinationToggle.addEventListener('click', handleToggleDivinationTouch)
