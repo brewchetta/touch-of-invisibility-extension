@@ -6,6 +6,14 @@ const handleGetSync = callback => {
   catch (e) {console.warn(e)}
 }
 
+// Set sync function
+const handleSetSync = object => {
+  try { browser.storage.local.set(object) }
+  catch(e){console.warn(e)}
+  try { chrome.storage.local.set(object) }
+  catch(e){console.warn(e)}
+}
+
 // Array of elements made invisible through this app
 const invisibleElements = []
 
@@ -22,7 +30,7 @@ const handleClick = event => {
 }
 
 // Undo for making elements visible starting with last element
-const handleUndo = ({keyCode}) => {
+const handleKeyPress = ({keyCode}) => {
   handleGetSync(obj => {
     if (obj.invisibleTouchActive === 'on' && keyCode === 90 && invisibleElements.length > 0) {
       invisibleElements.pop().style.visibility = ""
@@ -32,7 +40,7 @@ const handleUndo = ({keyCode}) => {
 
 const handleDOMContentLoaded = () => {
   document.addEventListener("click", handleClick)
-  document.addEventListener("keyup", handleUndo)
+  document.addEventListener("keyup", handleKeyPress)
 }
 
 // Fire off main script
