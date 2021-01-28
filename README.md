@@ -20,6 +20,6 @@ Click `Load unpacked` and navigate to the repo, choosing the entire folder. The 
 
 ### Using the Extension
 
-When you click on the extension icon, you'll be able to toggle the touch of invisibility on and off. When toggled on, any element you click will have its visibility set to "hidden".
+When you click on the extension icon, you'll be able to toggle the touch of invisibility on and off. When toggled on, any element you click will have its visibility set to "hidden". This also works with right-clicking elements, allowing you to hide links and interactive elements.
 
-You can return the visibility of elements by pressing 'z' any number of times. The touch needs to be active for this to work. Touches will be removed in order of last element touched.
+You can return visibility to elements by pressing 'z' any number of times. The touch needs to be active for this to work. Touches will be removed in order of last element touched.
